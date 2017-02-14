@@ -6,10 +6,12 @@ class Effect {
 		Effect();
 
 		void next();
-		void getRGB( unsigned char id, unsigned char* r, unsigned char* g, unsigned char* b );
+		virtual void  getRGB( unsigned char id, unsigned char* r, 
+												unsigned char* g, 
+												unsigned char* b );
 
 		int getNumLEDs() { return numLEDs; };
-	private:
+	protected:
 		int step;
 		int maxSteps;
 		unsigned char numLEDs;

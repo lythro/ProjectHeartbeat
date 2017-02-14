@@ -1,8 +1,10 @@
 #include "EffectManager.hpp"
 #include "Effect.hpp"
+#include "FullRainbow.hpp"
 
 EffectManager::EffectManager() {
-	this->effect = new Effect();
+	//this->effect = new Effect();
+	this->effect = new FullRainbow();
 }
 
 void EffectManager::nextStep(){
