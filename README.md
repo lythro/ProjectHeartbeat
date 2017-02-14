@@ -13,7 +13,7 @@ a few notes on what to do and what to avoid, see below:
 - implement getRGB( unsigned char id, unsigned char\* r, unsigned char\* g, unsigned char\* b )
   - id selects the current LED to get a colour for
   - r, g, b are to be given values from 0 to 255
-  - this->maxSteps defines the number of steps for a full animatio cycle
+  - this->maxSteps defines the number of steps for a full animation cycle
   - this->step defines the current step, it is updated externally and can/should be used to create
 	different patterns
   - the LEDs update frequency is 100Hz (may change in the future)
@@ -25,6 +25,22 @@ a few notes on what to do and what to avoid, see below:
   microcontroller with 120kB flash memory and 20kB RAM.
 - for the same reason, *avoid* printf at all costs!
 - pray that flash and RAM will be enough for our code ...
+
+### implemented effects
+- Effect
+  - default effect, fades from black to r, g or b to black
+  - config string: "fullcolour:[r|g|b]"
+- FullRainbow
+  - rainbow effect
+  - config string: "rainbow:{duration} {circles}"
+    - {duration} defines the speed of the animation: lower is faster, "100" equals 1 second
+	- {circles} defines the number of HSV-circles to display simultanously:
+	  - 0 displays all LEDs in the same (but changing) colour
+	  - 1 creates a ring (b->g->r->b) (1 blue)
+	  - 2 creates a ring (b->g->r->b->g->r->b) (2 blue)
+	  - ...
+- more to be announced
+
 
 ## effect\_tests
 This part is just a debug environment to test the different effects.
