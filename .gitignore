@@ -1,6 +1,9 @@
 # ycm
 .ycm_extra*
 
+# vim swp
+*.swp
+
 # Compiled Object files
 *.slo
 *.lo
