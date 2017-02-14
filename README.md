@@ -29,7 +29,7 @@ a few notes on what to do and what to avoid, see below:
 ### implemented effects
 - Effect
   - default effect, fades from black to r, g or b to black
-  - config string: "fullcolour:[r|g|b]"
+  - config string: "fillcolour:[r|g|b]"
 - FullRainbow
   - rainbow effect
   - config string: "rainbow:{duration} {circles}"

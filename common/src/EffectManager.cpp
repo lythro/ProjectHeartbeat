@@ -27,6 +27,7 @@ void EffectManager::setConfig( char* config ) {
 		printf( "name: %s\n", ptr );
 		printf( "params: %s\n", params );
 
+		bool success = true;
 		if (strcmp( ptr, "fillcolour" ) == 0) {
 			delete this->effect;
 			this->effect = new Effect();
@@ -34,8 +35,13 @@ void EffectManager::setConfig( char* config ) {
 		} else if (strcmp( ptr, "rainbow" ) == 0) {
 			delete this->effect;
 			this->effect = new FullRainbow();
+		} else {
+			success = false;
 		}
 
-		this->effect->setConfig( params );
+		if (success) {
+			this->effect->setConfig( params );
+		}
+
 	}
 }
