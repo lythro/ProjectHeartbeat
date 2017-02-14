@@ -39,4 +39,3 @@ add_executable( viewer ${src} ${common_src} ${UISrcs} ${MOCSrcs} )
 #target_link_libraries( viewer QVTK ${VTK_LIBRARIES} ${QT_LIBRARIES} )
 target_link_libraries( viewer ${VTK_LIBRARIES} ${QT_LIBRARIES} )
 
-

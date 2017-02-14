@@ -4,11 +4,13 @@
 class Effect {
 	public:
 		Effect();
+		virtual ~Effect() {};
 
 		void next();
 		virtual void  getRGB( unsigned char id, unsigned char* r, 
 												unsigned char* g, 
 												unsigned char* b );
+		virtual void setConfig( char* config );
 
 		int getNumLEDs() { return numLEDs; };
 	protected:
@@ -16,6 +18,7 @@ class Effect {
 		int maxSteps;
 		unsigned char numLEDs;
 		bool mode;
+		char colour;
 };
 
 #endif

@@ -20,6 +20,12 @@ Viewer::Viewer() {
 
 void Viewer::changeConfig() {
 	cout << "changeConfig: " << ui->lineEdit->displayText().toStdString() << endl;
+	char* tmp = new char[ui->lineEdit->displayText().toStdString().length()+1];
+	strcpy( tmp, ui->lineEdit->displayText().toStdString().c_str() );
+
+	this->effects.setConfig( tmp );
+
+	delete[] tmp;
 }
 
 void Viewer::updateLEDs() {

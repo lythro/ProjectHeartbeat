@@ -7,7 +7,7 @@ class EffectManager {
 	public:
 		EffectManager();
 
-		void setConfig( char* config, int len );
+		void setConfig( char* config );
 		void nextStep();
 
 		void getRGB( unsigned char id, unsigned char* r, unsigned char* g, unsigned char* b );

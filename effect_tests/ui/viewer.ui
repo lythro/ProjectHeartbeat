@@ -37,7 +37,7 @@
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
-       <string>fillcolour 255 0 0</string>
+       <string>rainbow:200 1</string>
       </property>
      </widget>
     </item>

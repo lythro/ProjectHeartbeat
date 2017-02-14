@@ -8,6 +8,7 @@ class FullRainbow : public Effect {
 		FullRainbow();
 
 		void getRGB( unsigned char id, unsigned char* r, unsigned char* g, unsigned char* b );
+		void setConfig( char* config );
 
 	protected:
 		float offset;
