@@ -54,4 +54,5 @@ This part is just a debug environment to test the different effects.
   enter to apply the change
 
 ## stm32\_controller
-Specific code for the microcontroller. 
+Specific code for the microcontroller: A maple mini board, STM32F103CBT6. For instructions on how to
+program it, see https://github.com/rogerclarkmelbourne/Arduino\_STM32/wiki/Installation
