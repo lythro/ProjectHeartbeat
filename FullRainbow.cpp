@@ -1,5 +1,5 @@
-#include "FullRainbow.hpp"
-#include "hsv.hpp"
+#include "FullRainbow.h"
+#include "hsv.h"
 
 #include "string.h"
 #include "stdlib.h"

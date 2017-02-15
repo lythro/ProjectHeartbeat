@@ -1,5 +1,5 @@
 
-#include "viewer.hpp"
+#include "viewer.h"
 
 #include <iostream>
 using std::cout;

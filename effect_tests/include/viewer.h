@@ -7,7 +7,7 @@
 #include <QTimer>
 
 #include "ui_viewer.h"
-#include "EffectManager.hpp"
+#include "EffectManager.h"
 
 class Viewer : public QMainWindow {
 	Q_OBJECT

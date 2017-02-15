@@ -1,5 +1,5 @@
 #include <QApplication>
-#include "viewer.hpp"
+#include "viewer.h"
 
 int main(int argc, char** args) {
 	QApplication app( argc, args );

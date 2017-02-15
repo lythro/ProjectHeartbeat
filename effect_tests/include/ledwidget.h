@@ -1,7 +1,7 @@
 #ifndef LEDWIDGET_H_
 #define LEDWIDGET_H_
 
-#include "EffectManager.hpp"
+#include "EffectManager.h"
 #include <QWidget>
 
 class LEDWidget : public QWidget {

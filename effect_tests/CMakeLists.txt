@@ -12,11 +12,11 @@ include_directories( ${VTK_INCLUDE_DIRS} )
 
 # common header
 set( common_hdr
-	${CMAKE_SOURCE_DIR}/../common/include
+	${CMAKE_SOURCE_DIR}/..
 )
 
 # common src
-file(GLOB common_src ${CMAKE_SOURCE_DIR}/../common/src/*.cpp)
+file(GLOB common_src ${CMAKE_SOURCE_DIR}/../*.cpp)
 
 
 # header files
@@ -33,7 +33,7 @@ include_directories( ${common_hdr} )
 
 # Visualizer library: Visualize points, voxels, scanners/scan poses
 QT4_WRAP_UI(UISrcs ./ui/viewer.ui)
-QT4_WRAP_CPP(MOCSrcs ./include/viewer.hpp ./include/ledwidget.hpp)
+QT4_WRAP_CPP(MOCSrcs ./include/viewer.h ./include/ledwidget.h)
 
 add_executable( viewer ${src} ${common_src} ${UISrcs} ${MOCSrcs} )
 #target_link_libraries( viewer QVTK ${VTK_LIBRARIES} ${QT_LIBRARIES} )

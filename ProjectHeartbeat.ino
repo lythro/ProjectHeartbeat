@@ -1,4 +1,4 @@
-#include "common/include/EffectManager.hpp"
+#include "EffectManager.h"
 
 // max len of incoming message
 #define INCOMING_MAX_LEN 100
@@ -7,7 +7,7 @@
 // global message buffer
 char incoming[INCOMING_MAX_LEN];
 int cnt = 0;
-
+EffectManager effectManager;
 
 void setup() {
   // init serial connection (bluetooth)

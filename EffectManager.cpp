@@ -1,6 +1,6 @@
-#include "EffectManager.hpp"
-#include "Effect.hpp"
-#include "FullRainbow.hpp"
+#include "EffectManager.h"
+#include "Effect.h"
+#include "FullRainbow.h"
 
 #include "string.h"
 #include "stdio.h"

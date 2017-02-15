@@ -1,7 +1,7 @@
 #ifndef FULLRAINBOW_H_
 #define FULLRAINBOW_H_
 
-#include "Effect.hpp"
+#include "Effect.h"
 
 class FullRainbow : public Effect {
 	public:

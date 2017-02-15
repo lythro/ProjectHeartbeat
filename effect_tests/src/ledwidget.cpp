@@ -1,5 +1,5 @@
-#include "ledwidget.hpp"
-#include "EffectManager.hpp"
+#include "ledwidget.h"
+#include "EffectManager.h"
 
 #include <QPaintEvent>
 #include <QPainter>

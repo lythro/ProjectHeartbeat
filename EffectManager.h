@@ -1,7 +1,7 @@
 #ifndef EFFECTMANAGER_H_
 #define EFFECTMANAGER_H_
 
-#include "Effect.hpp"
+#include "Effect.h"
 
 class EffectManager {
 	public:

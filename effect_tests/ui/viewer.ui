@@ -59,7 +59,7 @@
   <customwidget>
    <class>LEDWidget</class>
    <extends>QWidget</extends>
-   <header>ledwidget.hpp</header>
+   <header>ledwidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
