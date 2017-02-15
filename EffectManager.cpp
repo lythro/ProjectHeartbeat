@@ -8,6 +8,7 @@
 EffectManager::EffectManager() {
 	//this->effect = new Effect();
 	this->effect = new FullRainbow();
+	this->effect->setNumLEDs( 120 );
 }
 
 void EffectManager::nextStep(){
@@ -41,6 +42,7 @@ void EffectManager::setConfig( char* config ) {
 
 		if (success) {
 			this->effect->setConfig( params );
+			this->effect->setNumLEDs( 120 );
 		}
 
 	}
