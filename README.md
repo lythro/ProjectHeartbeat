@@ -1,13 +1,12 @@
 # ProjectHeartbeat
 This projects aims at connecting a smartphone-app with a stm32-microcontroller and an APA102c led
-strip to configure and display different colour-patterns/animations. It is split into 3 subprojects
-for easier development:
+strip to configure and display different colour-patterns/animations. It is split into 3 parts:
 
 ## common
-These files specify different LED effects/patterns. To implement a new pattern, create a new class
-that inherits from "Effect" and overwrites the virtual methods "getRGB" and "setConfig". Also, you
-will need to extend the EffectManager class to create the new effect from a given config string. For
-a few notes on what to do and what to avoid, see below:
+The source and header files in the root directory specify different LED effects/patterns. To 
+implement a new pattern, create a new class that inherits from "Effect" and overwrites the virtual 
+methods "getRGB" and "setConfig". Also, you will need to extend the EffectManager class to create the
+new effect from a given config string. For a few notes on what to do and what to avoid, see below:
 
 - extend "Effect"
 - implement getRGB( unsigned char id, unsigned char\* r, unsigned char\* g, unsigned char\* b )
@@ -53,6 +52,7 @@ This part is just a debug environment to test the different effects.
 - type the config string (including the name of the effect) into the line edit at the top, press
   enter to apply the change
 
-## stm32\_controller
+## ProjectHeartbeat.ino
+This is the arduino ide project file.
 Specific code for the microcontroller: A maple mini board, STM32F103CBT6. For instructions on how to
 program it, see https://github.com/rogerclarkmelbourne/Arduino\_STM32/wiki/Installation
