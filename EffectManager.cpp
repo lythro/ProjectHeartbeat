@@ -1,6 +1,7 @@
 #include "EffectManager.h"
 #include "Effect.h"
 #include "FullRainbow.h"
+#include "Meteor.h"
 
 #include "string.h"
 #include "stdio.h"
@@ -57,6 +58,9 @@ void EffectManager::setConfig( char* config ) {
 		} else if (strcmp( ptr, "rainbow" ) == 0) {
 			delete this->effect;
 			this->effect = new FullRainbow();
+		} else if (strcmp( ptr, "meteor" ) == 0) {
+			delete this->effect;
+			this->effect = new Meteor();
 		} else {
 			success = false;
 		}
