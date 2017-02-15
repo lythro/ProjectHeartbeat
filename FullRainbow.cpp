@@ -3,10 +3,11 @@
 
 #include "string.h"
 #include "stdlib.h"
+#include "stdio.h"
 
 FullRainbow::FullRainbow() : Effect() {
 	this->maxSteps = 200;
-	this->offset = 0.5*this->maxSteps/this->getNumLEDs();
+	this->offset = (float)this->maxSteps/this->numLEDs;
 }
 
 
@@ -24,7 +25,7 @@ void FullRainbow::setConfig( char* config ) {
 		ptr = strtok(NULL, del);
 		if (ptr != NULL) {
 			int num = atoi(ptr);
-			this->offset = 0.5*((float)this->maxSteps/this->getNumLEDs()) * num;
+			this->offset = ((float)this->maxSteps/this->numLEDs) * num;
 		}
 	}
 }

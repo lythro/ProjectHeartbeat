@@ -62,7 +62,6 @@ void EffectManager::setConfig( char* config ) {
 		}
 
 		if (success) {
-			this->effect->setConfig( params );
 			if (split) {
 				this->splitMode = true;
 				this->effect->setNumLEDs( this->numLEDs/2 + 1 );
@@ -70,6 +69,8 @@ void EffectManager::setConfig( char* config ) {
 				this->splitMode = false;
 				this->effect->setNumLEDs( this->numLEDs );
 			}
+			// config AFTER number of LEDs for correct one-time calculations!
+			this->effect->setConfig( params );
 		}
 	}
 }

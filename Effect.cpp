@@ -5,9 +5,9 @@
 Effect::Effect() {
 	this->step = 0;
 	this->maxSteps = 100;
-	this->numLEDs = 60;
 	this->mode = false;
 	this->colour = 'r';
+	this->numLEDs = 60;
 }
 
 void Effect::next() {
