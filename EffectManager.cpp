@@ -8,7 +8,10 @@
 EffectManager::EffectManager() {
 	//this->effect = new Effect();
 	this->effect = new FullRainbow();
-	this->effect->setNumLEDs( 120 );
+
+	this->numLEDs = 120;
+	this->effect->setNumLEDs( this->numLEDs );
+	this->splitMode = false;
 }
 
 void EffectManager::nextStep(){
@@ -16,7 +19,16 @@ void EffectManager::nextStep(){
 }
 
 void EffectManager::getRGB( unsigned char id, unsigned char* r, unsigned char* g, unsigned char* b) {
-	this->effect->getRGB( id, r, g, b );
+	if (this->splitMode) {
+		// let numLEDs/2 be the middle from which to propagate the effect into both directions
+		int mid = this->numLEDs/2;
+		int nID;
+		if (id < mid) nID = id;
+		else nID = 2*mid - id;
+		this->effect->getRGB( nID, r, g, b );
+	} else {
+		this->effect->getRGB( id, r, g, b );
+	}
 }
 
 void EffectManager::setConfig( char* config ) {
@@ -24,9 +36,18 @@ void EffectManager::setConfig( char* config ) {
 	char del[] = ":";
 	char* ptr = strtok( config, del );
 	if (ptr != NULL) {
+		// first: check for "split" which indicates split-mode!
+		bool split = false;
+		if (strcmp( ptr, "split" ) == 0) {
+			split = true;
+			ptr = strtok( NULL, del );
+			if (ptr == NULL) return;
+		}
+
+		// extract parameter-section
 		char* params = strtok(NULL, del);
-		printf( "name: %s\n", ptr );
-		printf( "params: %s\n", params );
+//		printf( "name: %s\n", ptr );
+//		printf( "params: %s\n", params );
 
 		bool success = true;
 		if (strcmp( ptr, "fillcolour" ) == 0) {
@@ -42,8 +63,13 @@ void EffectManager::setConfig( char* config ) {
 
 		if (success) {
 			this->effect->setConfig( params );
-			this->effect->setNumLEDs( 120 );
+			if (split) {
+				this->splitMode = true;
+				this->effect->setNumLEDs( this->numLEDs/2 + 1 );
+			} else {
+				this->splitMode = false;
+				this->effect->setNumLEDs( this->numLEDs );
+			}
 		}
-
 	}
 }

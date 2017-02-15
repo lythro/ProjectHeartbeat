@@ -26,6 +26,14 @@ new effect from a given config string. For a few notes on what to do and what to
 - pray that flash and RAM will be enough for our code ...
 
 ### implemented effects
+To change the displayed effect, call EffectManager.setConfig( char\* config ) with a string:
+
+- "{name}:{param1} {param2} [...]"
+- the string may be preceded by "split:" create an effect that spans only half the LED-strip and
+  appears mirrored on the other half, e.g.:
+  - "rainbow:200 1" goes all way round, while
+  - "split:rainbow:200 1" starts on one end of the "circle" and meets at the other end
+
 - Effect
   - default effect, fades from black to r, g or b to black
   - config string: "fillcolour:[r|g|b]"

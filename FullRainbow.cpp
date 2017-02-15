@@ -6,7 +6,7 @@
 
 FullRainbow::FullRainbow() : Effect() {
 	this->maxSteps = 200;
-	this->offset = this->maxSteps/this->getNumLEDs();
+	this->offset = 0.5*this->maxSteps/this->getNumLEDs();
 }
 
 
@@ -24,7 +24,7 @@ void FullRainbow::setConfig( char* config ) {
 		ptr = strtok(NULL, del);
 		if (ptr != NULL) {
 			int num = atoi(ptr);
-			this->offset = ((float)this->maxSteps/this->getNumLEDs()) * num;
+			this->offset = 0.5*((float)this->maxSteps/this->getNumLEDs()) * num;
 		}
 	}
 }
