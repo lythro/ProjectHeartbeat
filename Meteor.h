@@ -2,7 +2,6 @@
 #define METEOR_H_
 
 #include "Effect.h"
-#include "hsv.h"
 
 class Meteor : public Effect {
 	public:
@@ -13,6 +12,9 @@ class Meteor : public Effect {
 
 	protected:
 		int length;
+	
+	private:
+		void calcRGB( float val, unsigned char* r, unsigned char* g, unsigned char* b );
 
 };
 

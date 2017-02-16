@@ -32,7 +32,7 @@ To change the displayed effect, call EffectManager.setConfig( char\* config ) wi
 - the string may be preceded by "split:" create an effect that spans only half the LED-strip and
   appears mirrored on the other half, e.g.:
   - "rainbow:200 1" goes all way round, while
-  - "split:rainbow:200 1" starts on one end of the "circle" and meets at the other end
+  - `"split:rainbow:200 1"` starts on one end of the "circle" and meets at the other end
 
 - Effect
   - default effect, fades from black to r, g or b to black
@@ -46,6 +46,10 @@ To change the displayed effect, call EffectManager.setConfig( char\* config ) wi
 	  - 1 creates a ring (b->g->r->b) (1 blue)
 	  - 2 creates a ring (b->g->r->b->g->r->b) (2 blue)
 	  - ...
+- Meteor
+  - single colour meteor (or rather comet? shiny thing moving along the night's sky)
+  - config string: "meteor:{duration} {length}"
+
 - more to be announced
 
 
