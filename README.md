@@ -68,3 +68,7 @@ This part is just a debug environment to test the different effects.
 This is the arduino ide project file.
 Specific code for the microcontroller: A maple mini board, STM32F103CBT6. For instructions on how to
 program it, see https://github.com/rogerclarkmelbourne/Arduino\_STM32/wiki/Installation
+
+## effect2gif
+cmd tool to convert a config string into a gif of 100 frames with delays appropriate for a full
+cycle of the effect
