@@ -12,6 +12,7 @@ class EffectManager {
 
 		void getRGB( unsigned char id, unsigned char* r, unsigned char* g, unsigned char* b );
 		int getNumLEDs() { return this->numLEDs; };
+		int getNumSteps() { return this->effect->getNumSteps(); }
 
 	private:
 		Effect* effect;

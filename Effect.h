@@ -14,6 +14,8 @@ class Effect {
 
 		int getNumLEDs() { return numLEDs; };
 		void setNumLEDs( unsigned char num ) { this->numLEDs = num; }
+
+		int getNumSteps() { return maxSteps; }
 	protected:
 		int step;
 		int maxSteps;
