@@ -35,17 +35,18 @@ To change the displayed effect, call EffectManager.setConfig( char\* config ) wi
   - `"split:rainbow:200 1"` starts on one end of the "circle" and meets at the other end
 
 - Effect
-  - default effect, fades from black to r, g or b to black
-  - config string: "fillcolour:[r|g|b]"
+  - default effect, fades from black a given colour
+  - config string: "fillcolour:{duration} {r} {g} {b}"
 - FullRainbow
   - rainbow effect
-  - config string: "rainbow:{duration} {circles}"
+  - config string: "rainbow:{duration} {circles} {brightness}"
     - {duration} defines the speed of the animation: lower is faster, "100" equals 1 second
 	- {circles} defines the number of HSV-circles to display simultanously:
 	  - 0 displays all LEDs in the same (but changing) colour
 	  - 1 creates a ring (b->g->r->b) (1 blue)
 	  - 2 creates a ring (b->g->r->b->g->r->b) (2 blue)
 	  - ...
+	- {brightness} set the value of the colour transition in hsv
 - Meteor
   - single colour meteor (or rather comet? shiny thing moving along the night's sky)
   - config string: "meteor:{duration} {length}"
