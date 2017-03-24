@@ -8,10 +8,11 @@
 FullRainbow::FullRainbow() : Effect() {
 	this->maxSteps = 200;
 	this->offset = (float)this->maxSteps/this->numLEDs;
+	this->brightness = 1.;
 }
 
 
-// rainbow:maxSteps colorRange
+// rainbow:maxSteps colorRange brightness
 // int maxSteps --> how fast does the change happen?
 // int numCircles --> how many hsv-circles to show?
 void FullRainbow::setConfig( char* config ) {
@@ -26,6 +27,13 @@ void FullRainbow::setConfig( char* config ) {
 		if (ptr != NULL) {
 			int num = atoi(ptr);
 			this->offset = ((float)this->maxSteps/this->numLEDs) * num;
+
+			// brightness
+			ptr = strtok(NULL, del);
+			if (ptr != NULL) {
+				float br = atof(ptr);
+				if (0.f <= br && br <= 1.f) this->brightness = br;
+			}
 		}
 	}
 }
@@ -39,5 +47,5 @@ void FullRainbow::getRGB( unsigned char id, unsigned char* r, unsigned char* g, 
 	float s = this->offset * id + this->step;
 	while (s > this->maxSteps) s = s - this->maxSteps;
 
-	hsv2rgb( s/this->maxSteps, 1., 1., r, g, b );
+	hsv2rgb( s/this->maxSteps, 1., this->brightness, r, g, b );
 }

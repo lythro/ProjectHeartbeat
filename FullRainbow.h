@@ -12,6 +12,7 @@ class FullRainbow : public Effect {
 
 	protected:
 		float offset;
+		float brightness;
 };
 
 #endif
