@@ -6,8 +6,10 @@ Effect::Effect() {
 	this->step = 0;
 	this->maxSteps = 100;
 	this->mode = false;
-	this->colour = 'r';
 	this->numLEDs = 60;
+	this->r = 255;
+	this->g = 0;
+	this->b = 0;
 }
 
 void Effect::next() {
@@ -19,17 +21,32 @@ void Effect::next() {
 }
 
 
-// 'r' for fade black <-> red
-// 'g' for                green
-// 'b' for                blue
+// maxSteps r g b
 void Effect::setConfig( char* config ) {
 	char del[] = " ";
+	// r
 	char* ptr = strtok( config, del );
 	if (ptr != NULL) {
-		if (ptr[0] == 'r' || ptr[0] == 'g' || ptr[0] == 'b')
-			this->colour = ptr[0];
+		this->maxSteps = atoi(ptr);
+
+		// r
+		ptr = strtok( NULL, del );
+		if (ptr != NULL) {
+			this->r = atoi(ptr);
+			// g
+			ptr = strtok( NULL, del );
+			if (ptr != NULL) {
+				this->g = atoi(ptr);
+				// b
+				ptr = strtok( NULL, del );
+				if (ptr != NULL) {
+					this->b = atoi(ptr);
+				}
+			}
+		}
 	}
 }
+
 
 
 void Effect::getRGB( unsigned char id, unsigned char* r, unsigned char* g, unsigned char* b ) {
@@ -38,17 +55,12 @@ void Effect::getRGB( unsigned char id, unsigned char* r, unsigned char* g, unsig
 		return;
 	}
 
-	unsigned char* c;
-	if (this->colour == 'r') c = r;
-	else if (this->colour == 'g') c = g;
-	else c = b;
+	float dim = (float) this->step / this->maxSteps;
+	if (mode) dim = 1.f - dim;
 
-	*r = *g = *b = 0;
-	if (this->mode) {
-		*c = 250 - this->step * 2.5;
-	} else {
-		*c = this->step * 2.5;
-	}
+	*r = dim * this->r;
+	*g = dim * this->g;
+	*b = dim * this->b;
 }
 
 

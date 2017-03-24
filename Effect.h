@@ -21,7 +21,7 @@ class Effect {
 		int maxSteps;
 		unsigned char numLEDs;
 		bool mode;
-		char colour;
+		unsigned char r, g, b;
 };
 
 #endif
