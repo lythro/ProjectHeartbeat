@@ -57,6 +57,7 @@ void Effect::getRGB( unsigned char id, unsigned char* r, unsigned char* g, unsig
 
 	float dim = (float) this->step / this->maxSteps;
 	if (mode) dim = 1.f - dim;
+	dim = dim*dim*dim;
 
 	*r = dim * this->r;
 	*g = dim * this->g;
