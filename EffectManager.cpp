@@ -2,6 +2,7 @@
 #include "Effect.h"
 #include "FullRainbow.h"
 #include "Meteor.h"
+#include "SetPixel.h"
 
 #include "string.h"
 #include "stdio.h"
@@ -51,28 +52,42 @@ void EffectManager::setConfig( char* config ) {
 //		printf( "params: %s\n", params );
 
 		bool success = true;
+		Effect* tmp;
 		if (strcmp( ptr, "fillcolour" ) == 0) {
-			delete this->effect;
-			this->effect = new Effect();
-
+			tmp = new Effect();
 		} else if (strcmp( ptr, "rainbow" ) == 0) {
-			delete this->effect;
-			this->effect = new FullRainbow();
+			tmp = new FullRainbow();
 		} else if (strcmp( ptr, "meteor" ) == 0) {
-			delete this->effect;
-			this->effect = new Meteor();
+			tmp = new Meteor();
+		} else if (strcmp( ptr, "setpixel" ) == 0) {
+			tmp = &SetPixel::getInstance();
 		} else {
 			success = false;
 		}
 
+		// if a valid effect name was given
 		if (success) {
-			if (split) {
-				this->splitMode = true;
-				this->effect->setNumLEDs( this->numLEDs/2 + 1 );
-			} else {
-				this->splitMode = false;
-				this->effect->setNumLEDs( this->numLEDs );
+			// and the effect instance changed, which
+			// means that this is NOT just an update to
+			// SetPixel
+			if (tmp != this->effect) {
+				// adjust the number of leds
+				if (split) {
+					// TODO split mode doesn't make sense for
+					// some effects! (setpixel)
+					this->splitMode = true;
+					tmp->setNumLEDs( this->numLEDs/2 + 1 );
+				} else {
+					this->splitMode = false;
+					tmp->setNumLEDs( this->numLEDs );
+				}
 			}
+
+			// delete the old effect
+			if (this->effect != &SetPixel::getInstance()) {
+				delete this->effect;
+			}
+			this->effect = tmp; // set the new
 			// config AFTER number of LEDs for correct one-time calculations!
 			this->effect->setConfig( params );
 		}

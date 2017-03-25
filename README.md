@@ -50,6 +50,12 @@ To change the displayed effect, call EffectManager.setConfig( char\* config ) wi
 - Meteor
   - single colour meteor (or rather comet? shiny thing moving along the night's sky)
   - config string: "meteor:{duration} {length}"
+- SetPixel
+  - customization!
+  - conf string: "setpixel:{i} {r} {g} {b}"
+    - sets the colour of the i-th LED to (r,g,b)
+	- the last setting will not be forgotten, so use this to colour the LEDs one by one
+  
 
 - more to be announced
 

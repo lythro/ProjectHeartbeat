@@ -13,7 +13,7 @@ class Effect {
 		virtual void setConfig( char* config );
 
 		int getNumLEDs() { return numLEDs; };
-		void setNumLEDs( unsigned char num ) { this->numLEDs = num; }
+		virtual void setNumLEDs( unsigned char num ) { this->numLEDs = num; }
 
 		int getNumSteps() { return maxSteps; }
 	protected:
