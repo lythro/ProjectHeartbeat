@@ -49,7 +49,7 @@ To change the displayed effect, call EffectManager.setConfig( char\* config ) wi
 	- {brightness} set the value of the colour transition in hsv
 - Meteor
   - single colour meteor (or rather comet? shiny thing moving along the night's sky)
-  - config string: "meteor:{duration} {length}"
+  - config string: "meteor:{duration} {length} {r} {g} {b}"
 - SetPixel
   - customization!
   - conf string: "setpixel:{i} {r} {g} {b}"

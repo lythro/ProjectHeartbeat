@@ -8,11 +8,15 @@
 Meteor::Meteor() : Effect() {
 	this->maxSteps = 200;
 	this->length = 30;
+	this->mr = 255;
+	this->mg = 0;
+	this->mb = 0;
 }
 
 
 // maxSteps = animation period
 // length = length of meteor
+// plus r,g,b
 void Meteor::setConfig( char* config ) {
 	char del[] = " ";
 	char* ptr = strtok( config, del );
@@ -25,6 +29,22 @@ void Meteor::setConfig( char* config ) {
 		if (ptr != NULL) {
 			this->length = atoi(ptr);
 			if (this->length > this->numLEDs-1) this->length = this->numLEDs-1;
+
+			// r
+			ptr = strtok(NULL, del);
+			if (ptr != NULL) {
+				this->mr = atoi(ptr);
+				// g
+				ptr = strtok(NULL, del);
+				if (ptr != NULL) {
+					this->mg = atoi(ptr);
+					// b
+					ptr = strtok(NULL, del);
+					if (ptr != NULL) {
+						this->mb = atoi(ptr);
+					}
+				}
+			}
 		}
 	}
 }
@@ -54,11 +74,11 @@ void Meteor::calcRGB( float val, unsigned char* r, unsigned char* g, unsigned ch
 	float brightness = 0.f;
 	// linear
 	/*
-	if (val < peak)
-		brightness = val/peak;
-	else
-		brightness = 1 - (val-peak)/(1.-peak);
-	*/
+	   if (val < peak)
+	   brightness = val/peak;
+	   else
+	   brightness = 1 - (val-peak)/(1.-peak);
+	   */
 
 	// x^2
 	float vd = (val-1);
@@ -68,5 +88,7 @@ void Meteor::calcRGB( float val, unsigned char* r, unsigned char* g, unsigned ch
 	else
 		brightness = (vd*vd)/(pd*pd);
 
-	*r = 255 * brightness;
+	*r = this->mr * brightness;
+	*g = this->mg * brightness;
+	*b = this->mb * brightness;
 }

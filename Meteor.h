@@ -12,6 +12,7 @@ class Meteor : public Effect {
 
 	protected:
 		int length;
+		unsigned char mr, mg, mb;
 	
 	private:
 		void calcRGB( float val, unsigned char* r, unsigned char* g, unsigned char* b );
