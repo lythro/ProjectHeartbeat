@@ -30,9 +30,10 @@ float Heartbeat::triangular( float t, float t0, float width ) {
 void Heartbeat::next() {
 	Effect::next();
 
-	const float width = 0.2;
-	const float t0 = 0.35;
-	const float t1 = 0.55;
+	// TODO adjust these
+	const float width = 0.3;
+	const float t0 = 0.3;
+	const float t1 = 0.6;
 
 	float t = (float) this->step / this->maxSteps;
 	float v = Heartbeat::triangular( t, t0, width )
