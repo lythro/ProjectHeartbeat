@@ -6,7 +6,7 @@ class Effect {
 		Effect();
 		virtual ~Effect() {};
 
-		void next();
+		virtual void next();
 		virtual void  getRGB( unsigned char id, unsigned char* r, 
 												unsigned char* g, 
 												unsigned char* b );

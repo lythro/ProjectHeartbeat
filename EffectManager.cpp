@@ -3,6 +3,7 @@
 #include "FullRainbow.h"
 #include "Meteor.h"
 #include "SetPixel.h"
+#include "Heartbeat.h"
 
 #include "string.h"
 #include "stdio.h"
@@ -55,6 +56,8 @@ void EffectManager::setConfig( char* config ) {
 		Effect* tmp;
 		if (strcmp( ptr, "fillcolour" ) == 0) {
 			tmp = new Effect();
+		} else if (strcmp( ptr, "heartbeat" ) == 0) {
+			tmp = new Heartbeat();
 		} else if (strcmp( ptr, "rainbow" ) == 0) {
 			tmp = new FullRainbow();
 		} else if (strcmp( ptr, "meteor" ) == 0) {
