@@ -2,10 +2,11 @@
 #include "string.h"
 #include "stdlib.h"
 
+#include <iostream>
+
 Effect::Effect() {
 	this->step = 0;
 	this->maxSteps = 100;
-	this->mode = false;
 	this->numLEDs = 60;
 	this->r = 255;
 	this->g = 0;
@@ -16,7 +17,6 @@ void Effect::next() {
 	this->step++;
 	if (this->step > this->maxSteps) {
 		this->step = 0;
-		this->mode = !this->mode;
 	}
 }
 
@@ -24,7 +24,7 @@ void Effect::next() {
 // maxSteps r g b
 void Effect::setConfig( char* config ) {
 	char del[] = " ";
-	// r
+	// maxsteps
 	char* ptr = strtok( config, del );
 	if (ptr != NULL) {
 		this->maxSteps = atoi(ptr);
@@ -55,9 +55,15 @@ void Effect::getRGB( unsigned char id, unsigned char* r, unsigned char* g, unsig
 		return;
 	}
 
-	float dim = (float) this->step / this->maxSteps;
-	if (mode) dim = 1.f - dim;
-	dim = dim*dim*dim;
+	float dim = 0.f;
+	if (this->step <= this->maxSteps/2) {
+		// dim up
+		dim = 2 * (float) this->step / this->maxSteps;
+	} else {
+		// dim down
+		dim = 1.f - 2 * ((float) this->step / this->maxSteps - 0.5f);
+	}
+	dim = dim*dim;//*dim;
 
 	*r = dim * this->r;
 	*g = dim * this->g;

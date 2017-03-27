@@ -20,7 +20,6 @@ class Effect {
 		int step;
 		int maxSteps;
 		unsigned char numLEDs;
-		bool mode;
 		unsigned char r, g, b;
 };
 
