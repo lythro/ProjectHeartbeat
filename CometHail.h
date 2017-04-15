@@ -7,8 +7,14 @@
 
 
 class CometHail : public Effect {
-	public:
+	private:
 		CometHail();
+
+	public:
+		static CometHail& getInstance() {
+			static CometHail ch;
+			return ch;
+		}
 
 		void next();
 		void setNumLEDs( unsigned char num );

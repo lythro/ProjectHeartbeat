@@ -2,8 +2,15 @@
 #define EFFECT_H_
 
 class Effect {
-	public:
+	protected:
 		Effect();
+
+	public:
+		static Effect& getInstance() {
+			static Effect e;
+			return e;
+		}
+
 		virtual ~Effect() {};
 
 		// for one-shots like Comet

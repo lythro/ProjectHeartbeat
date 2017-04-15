@@ -12,8 +12,7 @@
 #include "stdio.h"
 
 EffectManager::EffectManager() {
-	//this->effect = new Effect();
-	this->effect = new FullRainbow();
+	this->effect = &FullRainbow::getInstance();
 
 	this->numLEDs = 120;
 	this->effect->setNumLEDs( this->numLEDs );
@@ -58,21 +57,19 @@ void EffectManager::setConfig( char* config ) {
 		bool success = true;
 		Effect* tmp;
 		if (strcmp( ptr, "fillcolour" ) == 0) {
-			tmp = new Effect();
+			tmp = &Effect::getInstance(); //new Effect();
 		} else if (strcmp( ptr, "constant" ) == 0) {
-			tmp = new Constant();
+			tmp = &Constant::getInstance(); //new Constant();
 		} else if (strcmp( ptr, "heartbeat" ) == 0) {
-			tmp = new Heartbeat();
+			tmp = &Heartbeat::getInstance(); //new Heartbeat();
 		} else if (strcmp( ptr, "rainbow" ) == 0) {
-			tmp = new FullRainbow();
+			tmp = &FullRainbow::getInstance(); //new FullRainbow();
 		} else if (strcmp( ptr, "meteor" ) == 0) {
-			tmp = new Meteor();
+			tmp = &Meteor::getInstance(); //new Meteor();
 		} else if (strcmp( ptr, "setpixel" ) == 0) {
 			tmp = &SetPixel::getInstance();
-		} else if (strcmp( ptr, "comet" ) == 0) {
-			tmp = new Comet();
 		} else if (strcmp( ptr, "shower" ) == 0) {
-			tmp = new CometHail();
+			tmp = &CometHail::getInstance(); //new CometHail();
 		} else {
 			success = false;
 		}
@@ -95,11 +92,9 @@ void EffectManager::setConfig( char* config ) {
 				}
 			}
 
-			// delete the old effect
-			if (this->effect != &SetPixel::getInstance()) {
-				delete this->effect;
-			}
-			this->effect = tmp; // set the new
+			this->effect = tmp; // set the new effect.
+			// no need to delete the old one, since every one is singleton (?)
+			
 			// config AFTER number of LEDs for correct one-time calculations!
 			this->effect->setConfig( params );
 		}

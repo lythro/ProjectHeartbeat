@@ -4,8 +4,14 @@
 #include "Effect.h"
 
 class Meteor : public Effect {
-	public:
+	private:
 		Meteor();
+
+	public:
+		static Meteor& getInstance() {
+			static Meteor m;
+			return m;
+		}
 
 		void getRGB( unsigned char id, unsigned char* r, unsigned char* g, unsigned char* b );
 		void setConfig( char* config );
