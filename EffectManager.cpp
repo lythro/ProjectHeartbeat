@@ -6,6 +6,7 @@
 #include "Heartbeat.h"
 #include "Comet.h" // debug, single shot effect
 #include "CometHail.h"
+#include "Constant.h"
 
 #include "string.h"
 #include "stdio.h"
@@ -58,6 +59,8 @@ void EffectManager::setConfig( char* config ) {
 		Effect* tmp;
 		if (strcmp( ptr, "fillcolour" ) == 0) {
 			tmp = new Effect();
+		} else if (strcmp( ptr, "constant" ) == 0) {
+			tmp = new Constant();
 		} else if (strcmp( ptr, "heartbeat" ) == 0) {
 			tmp = new Heartbeat();
 		} else if (strcmp( ptr, "rainbow" ) == 0) {
@@ -68,7 +71,7 @@ void EffectManager::setConfig( char* config ) {
 			tmp = &SetPixel::getInstance();
 		} else if (strcmp( ptr, "comet" ) == 0) {
 			tmp = new Comet();
-		} else if (strcmp( ptr, "comethail" ) == 0) {
+		} else if (strcmp( ptr, "shower" ) == 0) {
 			tmp = new CometHail();
 		} else {
 			success = false;

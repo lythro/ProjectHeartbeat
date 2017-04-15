@@ -61,8 +61,9 @@ To change the displayed effect, call EffectManager.setConfig( char\* config ) wi
 - HeartBeat:
   - two pulses of a given colour
   - conf string: `heartbeat:{duration} {r} {g} {b}`
-
-- more to be announced
+- Constant:
+  - constant colour.
+  - const string: `constant:{r} {g} {b}`
 
 
 ## effect\_tests
