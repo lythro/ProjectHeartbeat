@@ -79,7 +79,7 @@ void EffectManager::setConfig( char* config ) {
 			// and the effect instance changed, which
 			// means that this is NOT just an update to
 			// SetPixel
-			if (tmp != this->effect) {
+			if (tmp != this->effect || tmp != &SetPixel::getInstance()) {
 				// adjust the number of leds
 				if (split) {
 					// TODO split mode doesn't make sense for
