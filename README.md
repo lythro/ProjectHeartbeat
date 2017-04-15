@@ -55,7 +55,9 @@ To change the displayed effect, call EffectManager.setConfig( char\* config ) wi
   - conf string: "setpixel:{i} {r} {g} {b}"
     - sets the colour of the i-th LED to (r,g,b)
 	- the last setting will not be forgotten, so use this to colour the LEDs one by one
-  
+- CometHail:
+  - spawns 'n' random comets that change after each round
+  - conf string: "comethail:{n]"
 
 - more to be announced
 
