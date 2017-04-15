@@ -8,6 +8,10 @@ using std::endl;
 
 #include <stdio.h>
 
+// srand!
+#include <cstdlib>
+#include <ctime>
+
 int main(int argc, char** argv) {
 	Magick::InitializeMagick(*argv);
 
@@ -15,6 +19,9 @@ int main(int argc, char** argv) {
 		cout << argv[0] << " <config>" << endl;
 		return 1;
 	}
+
+	// for comet hail
+	std::srand( std::time(0) );
 
 	EffectManager eff;
 	eff.setConfig( argv[1] );
@@ -40,7 +47,7 @@ int main(int argc, char** argv) {
 	// 30 fps --> 100 delays / 30 frames -> 3,3333 ... delays min per frame!
 	// --> min 4 delay per frame!
 	int numSkip = 4;
-	int numT = 100;
+	int numT = 200;
 	if (max/numSkip <= numT) {
 		numT = max/numSkip;
 	} else {
