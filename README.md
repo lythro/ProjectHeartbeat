@@ -31,15 +31,15 @@ To change the displayed effect, call EffectManager.setConfig( char\* config ) wi
 - "{name}:{param1} {param2} [...]"
 - the string may be preceded by "split:" create an effect that spans only half the LED-strip and
   appears mirrored on the other half, e.g.:
-  - "rainbow:200 1" goes all way round, while
-  - `"split:rainbow:200 1"` starts on one end of the "circle" and meets at the other end
+  - `rainbow:200 1` goes all way round, while
+  - `split:rainbow:200 1` starts on one end of the "circle" and meets at the other end
 
 - Effect
   - default effect, fades from black a given colour
-  - config string: "fillcolour:{duration} {r} {g} {b}"
+  - config string: `fillcolour:{duration} {r} {g} {b}`
 - FullRainbow
   - rainbow effect
-  - config string: "rainbow:{duration} {circles} {brightness}"
+  - config string: `rainbow:{duration} {circles} {brightness}`
     - {duration} defines the speed of the animation: lower is faster, "100" equals 1 second
 	- {circles} defines the number of HSV-circles to display simultanously:
 	  - 0 displays all LEDs in the same (but changing) colour
@@ -49,15 +49,18 @@ To change the displayed effect, call EffectManager.setConfig( char\* config ) wi
 	- {brightness} set the value of the colour transition in hsv
 - Meteor
   - single colour meteor (or rather comet? shiny thing moving along the night's sky)
-  - config string: "meteor:{duration} {length} {r} {g} {b}"
+  - config string: `meteor:{duration} {length} {r} {g} {b}`
 - SetPixel
   - customization!
-  - conf string: "setpixel:{i} {r} {g} {b}"
+  - conf string: `setpixel:{i} {r} {g} {b}`
     - sets the colour of the i-th LED to (r,g,b)
 	- the last setting will not be forgotten, so use this to colour the LEDs one by one
 - CometHail:
   - spawns 'n' random comets that change after each round
-  - conf string: "comethail:{n]"
+  - conf string: `comethail:{n}`
+- HeartBeat:
+  - two pulses of a given colour
+  - conf string: `heartbeat:{duration} {r} {g} {b}`
 
 - more to be announced
 
