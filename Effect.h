@@ -6,6 +6,9 @@ class Effect {
 		Effect();
 		virtual ~Effect() {};
 
+		// for one-shots like Comet
+		virtual bool isDone() { return false; }
+
 		virtual void next();
 		virtual void  getRGB( unsigned char id, unsigned char* r, 
 												unsigned char* g, 

@@ -4,6 +4,8 @@
 #include "Meteor.h"
 #include "SetPixel.h"
 #include "Heartbeat.h"
+#include "Comet.h" // debug, single shot effect
+#include "CometHail.h"
 
 #include "string.h"
 #include "stdio.h"
@@ -64,6 +66,10 @@ void EffectManager::setConfig( char* config ) {
 			tmp = new Meteor();
 		} else if (strcmp( ptr, "setpixel" ) == 0) {
 			tmp = &SetPixel::getInstance();
+		} else if (strcmp( ptr, "comet" ) == 0) {
+			tmp = new Comet();
+		} else if (strcmp( ptr, "comethail" ) == 0) {
+			tmp = new CometHail();
 		} else {
 			success = false;
 		}

@@ -2,8 +2,6 @@
 #include "string.h"
 #include "stdlib.h"
 
-#include <iostream>
-
 Effect::Effect() {
 	this->step = 0;
 	this->maxSteps = 100;

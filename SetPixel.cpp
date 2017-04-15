@@ -2,15 +2,12 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include <iostream>
-
 SetPixel::SetPixel() { //: Effect() {
 	int leds = this->getNumLEDs();
 	this->r = new unsigned char[leds];
 	this->g = new unsigned char[leds];
 	this->b = new unsigned char[leds];
 
-	std::cout << "Setting " << leds << " pixel to 0." << std::endl;
 	for (int i = 0; i < leds; i++) {
 		this->r[i] = 0;
 		this->g[i] = 0;
@@ -29,7 +26,6 @@ void SetPixel::setNumLEDs( unsigned char num ) {
 	this->g = new unsigned char[num];
 	this->b = new unsigned char[num];
 	
-	std::cout << "Setting " << num << " pixel to 0." << std::endl;
 	for (int i = 0; i < num; i++) {
 		this->r[i] = 0;
 		this->g[i] = 0;
