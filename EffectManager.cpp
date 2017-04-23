@@ -68,7 +68,7 @@ void EffectManager::setConfig( char* config ) {
 			tmp = &Meteor::getInstance(); //new Meteor();
 		} else if (strcmp( ptr, "setpixel" ) == 0) {
 			tmp = &SetPixel::getInstance();
-		} else if (strcmp( ptr, "shower" ) == 0) {
+		} else if (strcmp( ptr, "comethail" ) == 0) {
 			tmp = &CometHail::getInstance(); //new CometHail();
 		} else {
 			success = false;

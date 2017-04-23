@@ -2,8 +2,12 @@
 
 Comet::Comet() : Effect() {
 	// create a random comet.
-	speed = rnd( 0.001, 0.007 );
-	length = rnd( 0.05, 0.3 );
+	//speed = rnd( 0.001, 0.007 );
+	//length = rnd( 0.05, 0.3 );
+	float mod = rnd(0., 1.);
+	speed = mod * 0.006 + 0.002;
+	length = (1.-mod) * 0.35 + 0.05;
+
 	position = -length - rnd(0.2, 1.);
 	r = rnd(0., 1.) * 256;
 	g = rnd(0., 1.) * 256;
