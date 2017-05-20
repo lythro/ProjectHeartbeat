@@ -14,7 +14,9 @@
 EffectManager::EffectManager() {
 	this->effect = &FullRainbow::getInstance();
 
-	this->numLEDs = 120;
+	//this->numLEDs = 120;
+	//this->numLEDs = 90;
+	this->numLEDs = 91; // explaination see below
 	this->effect->setNumLEDs( this->numLEDs );
 	this->splitMode = false;
 }
@@ -24,12 +26,28 @@ void EffectManager::nextStep(){
 }
 
 void EffectManager::getRGB( unsigned char id, unsigned char* r, unsigned char* g, unsigned char* b) {
+	// adjustments to final product: the led strip is slightly shifted.
+	// the first LED should be the second effect-led. -- but there is also a gap of one LED thats
+	// missing since we need some space for cables etc.
+	// to compensate for that, we assume to have 91 LEDs (so the virtual LED strip extends into the
+	// gap), and have a shift of 2.
+	id += 2;
+	if (id == this->numLEDs) id = 0;
+
 	if (this->splitMode) {
+		/*
 		// let numLEDs/2 be the middle from which to propagate the effect into both directions
 		int mid = this->numLEDs/2;
 		int nID;
 		if (id < mid) nID = id;
 		else nID = 2*mid - id;
+		*/
+		// nope. the ends are the middle
+		int mid = this->numLEDs/2;
+		int nID;
+		if (id < mid) nID = mid - id;
+		else nID = id - mid;
+
 		this->effect->getRGB( nID, r, g, b );
 	} else {
 		this->effect->getRGB( id, r, g, b );
