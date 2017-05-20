@@ -73,8 +73,8 @@ void loop() {
 // apply given configuration
 void processMessage() {
   // TODO
-  Serial3.print( "I got this: " );
-  Serial3.print( incoming );
+  //Serial3.print( "I got this: " );
+  //Serial3.print( incoming );
   effectManager.setConfig( incoming );
 }
 
